@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @State private var showingAlter: Bool = false
+    
     var body: some View {
         
 //        ZStack {
@@ -23,7 +26,7 @@ struct ContentView: View {
 //        // Gradient background colors
 //        ZStack {
 //            LinearGradient(gradient: Gradient(colors: [.red, .blue]), startPoint: .leading, endPoint: .trailing).ignoresSafeArea()
-//            
+//
 //            RadialGradient(gradient: Gradient(colors: [Color.black.opacity(0.6), Color.red.opacity(0.0)]), center: .center, startRadius: 5, endRadius: 200)
 //        }
         
@@ -33,18 +36,31 @@ struct ContentView: View {
 //        }
         
         
-//        VStack(spacing: 10) {
-//
-//            HStack {
-//                Text("1").padding()
-//                Text("2").padding()
-//                Text("3").padding()
-//            }
-//
-//            Text("First").padding()
-//            Text("Second").padding()
-//            Text("Third").padding()
-//        }
+        VStack(spacing: 10) {
+
+            HStack {
+                Text("1").padding()
+                Text("2").padding()
+                Text("3").padding()
+            }
+
+            Text("First").padding()
+            Text("Second").padding()
+            Text("Third").padding()
+            
+            Button(action: {
+                print("Hello World")
+            }) {
+                Text("Click me")
+            }
+            
+            // Show an alert when button is clicked
+            Button("Show alert") {
+                self.showingAlter = true
+            }.alert(isPresented: $showingAlter) {
+                Alert(title: Text("This is a title"), message: Text("This is some detail"), dismissButton: .default(Text("OK")))
+            }
+        }
     }
 }
 
