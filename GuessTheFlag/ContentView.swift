@@ -68,9 +68,11 @@ struct ContentView: View {
     @State var score: Int = 0
     @State var scoreTitle: String = ""
     
+    @State var previousCountry = ""
+    
     var body: some View {
         ZStack {
-            LinearGradient(gradient: Gradient(colors: [.red, .black]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
+            LinearGradient(gradient: Gradient(colors: [.blue, .red]), startPoint: .top, endPoint: .bottom).edgesIgnoringSafeArea(.all)
             
             VStack(spacing: 30) {
                 Spacer().frame(width: .none, height: 30, alignment: .center)
@@ -131,7 +133,14 @@ struct ContentView: View {
     
     func askQuestion() {
         self.countries.shuffle()
-        self.currentCountryIndex = Int.random(in: 0...2)
+          
+        while true {
+            self.currentCountryIndex = Int.random(in: 0...2)
+            if self.countries[self.currentCountryIndex] != self.previousCountry {
+                self.previousCountry = self.countries[self.currentCountryIndex]
+                break
+            }
+        }
     }
 }
 
