@@ -7,7 +7,7 @@ This is my second SwiftUI project in this challenge.
 <br>
 
 ### App idea
-Showing a flag name, and asking the user to click on the image of the flag from a list of flags shown
+Showing a flag name, and asking the user to click on the flag image from a list of flags shown
 <br><br>
 
 
